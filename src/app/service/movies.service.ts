@@ -15,8 +15,8 @@ export class MoviesService {
     return this.httpClient.get<Movie[]>('/api/movies');
   }
 
-  getFilteredMoviesAsync(movieFilters: MovieFilters): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>('/api/movie?type=' + movieFilters.genre).pipe(
+  getFilteredMovies$(movieFilters: MovieFilters): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>('api/movies?genre=' + movieFilters.genre).pipe(
       map(values => values.filter(movie => {
         return movie.rating <= movieFilters.note;
       }))
@@ -24,6 +24,6 @@ export class MoviesService {
   }
 
   getMovie$(id: number): Observable<Movie> {
-    return this.httpClient.get<Movie>('/api/movies/' + id);
+    return this.httpClient.get<Movie>('api/movies/' + id);
   }
 }

@@ -8,6 +8,8 @@ import { MovieComponent } from './movie/movie.component';
 import {HttpClientModule} from "@angular/common/http";
 import { MovieCardComponent } from './search/movie-card/movie-card.component';
 import {FormsModule} from "@angular/forms";
+import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {FormsModule} from "@angular/forms";
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        ToastrModule.forRoot(),
+        BrowserAnimationsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
