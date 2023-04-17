@@ -14,11 +14,17 @@ export class MoviesService {
   getAllMovies$(): Observable<Movie[]> {
     return this.httpClient.get<Movie[]>('/api/movies');
   }
-
+  getAllMoviesFilterByRating$(movieFilters: MovieFilters): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>('/api/movies').pipe(
+      map(values => values.filter(movie => {
+        return movie.rating >= movieFilters.note;
+      }))
+    );
+  }
   getFilteredMovies$(movieFilters: MovieFilters): Observable<Movie[]> {
     return this.httpClient.get<Movie[]>('api/movies?genre=' + movieFilters.genre).pipe(
       map(values => values.filter(movie => {
-        return movie.rating <= movieFilters.note;
+        return movie.rating >= movieFilters.note;
       }))
     );
   }

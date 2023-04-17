@@ -4,7 +4,6 @@ import {MovieFilters} from "../model/movie-filters.model";
 import {Subject} from "rxjs";
 import { isEmpty } from 'rxjs/operators';
 import {Movie} from "../model/movie.model";
-import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -18,7 +17,7 @@ export class SearchComponent {
   }
   movies$: Subject<Movie[]> = new Subject<Movie[]>();
 
-  constructor(private toastr: ToastrService,private moviesService: MoviesService) {
+  constructor(private moviesService: MoviesService) {
     this.moviesService.getAllMovies$()
       .subscribe(movies => {
         this.movies$.next(movies);
@@ -26,15 +25,27 @@ export class SearchComponent {
   }
 
   search() : void{
-    //alert(this.filters.genre)
-    // TODO Implement this method
-    this.moviesService.getFilteredMovies$(this.filters)
-      .subscribe((data) =>  this.movies$.next(data))
-    this.movies$.pipe(
-      isEmpty()
-    ).subscribe((isEmpty: boolean) => {
-      if (isEmpty) {
-        alert('Nothing found');
-      }
-    });
-} }
+
+    if (this.filters.genre === "All Movies"){
+      this.moviesService.getAllMoviesFilterByRating$(this.filters)
+        .subscribe(movies => {
+
+            if(movies.length === 0){
+              alert("Nothing found !!!!");
+            }else{
+              this.movies$.next(movies);
+            }
+
+        })
+    }else {
+      this.moviesService.getFilteredMovies$(this.filters)
+        .subscribe((movies) => {
+          if(movies.length === 0){
+              alert("Nothing found !!!!");
+          }else{
+            this.movies$.next(movies)
+          }
+        })
+    }
+  }
+}

@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class MovieComponent {
   movie: Movie;
   constructor(private activatedRoute: ActivatedRoute,private route: Router) {
-    this.activatedRoute.data.subscribe(({ movie }) => {
+      this.activatedRoute.data.subscribe(({ movie }) => {
       this.movie = movie;
     })
   }

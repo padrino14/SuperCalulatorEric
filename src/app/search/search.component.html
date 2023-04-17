@@ -1,5 +1,5 @@
 <div class="filters">
-  <form (ngSubmit)="search()">
+  <form>
     <!-- TODO Something is missing on those filters -->
     <label for="genre">Movie genre</label>
     <select id="genre" name="genre" [(ngModel)]="filters.genre">
@@ -15,8 +15,8 @@
       <option [value]="'Western'">Western</option>
     </select><br/>
     <label for="minimumRate">Minimum rating</label>
-    <input id="minimumRate" [(ngModel)]="filters.note" type="number" name="minimumRate"/>
-    <button type="submit">Search</button>
+    <input id="minimumRate"  [(ngModel)]="filters.note" type="number" name="minimumRate"/>
+    <button type="submit" (click)="search()">Search</button>
   </form>
 </div>
 

@@ -10,13 +10,15 @@ import { MovieCardComponent } from './search/movie-card/movie-card.component';
 import {FormsModule} from "@angular/forms";
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     MovieComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    NotFoundPageComponent
   ],
     imports: [
         BrowserModule,

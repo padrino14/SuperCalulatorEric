@@ -29,7 +29,7 @@ describe('MoviesService', () => {
     // Arrange
     let filters: MovieFilters = {
       genre: 'Action',
-      minimumRate: 4
+      note: 0
     }
 
     let mockData: Movie[] = [
