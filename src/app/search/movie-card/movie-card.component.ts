@@ -10,8 +10,15 @@ import {Router} from "@angular/router";
 export class MovieCardComponent {
   @Input()
   movie: Movie;
-  constructor(private router: Router) {}
-  singleMovies(): void{
-    this.router.navigateByUrl('movie/'+this.movie.id)
+  rate: number = this["movie"].rating;
+  i:number[] ;
+
+  constructor(private router: Router) {
+    for (let j = 1; j < this.rate; j++) {
+      // @ts-ignore
+      this.i= [...j,this.i]
+    }
   }
+
+  protected readonly toString = toString;
 }
