@@ -24,6 +24,6 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./Nouveau dossier/super_calculator
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/calcul:latest
