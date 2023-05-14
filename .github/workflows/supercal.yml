@@ -25,5 +25,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./Nouveau dossier/super_calculator
+          file: ./Nouveau dossier/super_calculator/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/calcul:latest
