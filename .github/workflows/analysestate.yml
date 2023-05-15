@@ -20,7 +20,16 @@ jobs:
           docker run --rm -i hadolint/hadolint < ./Nouveau_dossier/super_calculator/super_calculator/Dockerfile
 
      
-          
+      - name: Installation Semgrep   
+        run: pip install semgrep
+      - name: semgrep-action
+        uses: returntocorp/semgrep-action@v1
+      - name: Analyse statistique de Semgrep
+        run: |
+          semgrep --config p/python ./super_calculator/Dockerfile
       
+    
+            
+    
 
 
