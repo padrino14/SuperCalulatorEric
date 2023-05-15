@@ -28,8 +28,23 @@ jobs:
         run: |
           semgrep --config p/python ./Nouveau_dossier/super_calculator/super_calculator/Dockerfile
       
-    
-            
+        
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      
+      - name: Install Super-Linter
+        run: |
+          git clone https://github.com/github/super-linter.git
+          cd super-linter
+          ./install.sh
+      
+      - name: Run Super-Linter with Semgrep
+        run: |
+          cd $GITHUB_WORKSPACE
+          ./super-linter.sh -e ".*" -e "!Nouveau_dossier/super_calculator/super_calculator/Dockerfile"
+     
     
 
 
