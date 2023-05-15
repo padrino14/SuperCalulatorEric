@@ -39,6 +39,7 @@ jobs:
         run: |
           git clone https://github.com/github/super-linter
           cd super-linter
+          ./install.sh
           pip install -r requirements.txt
           chmod +x super-linter.sh
       
