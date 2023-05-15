@@ -1,9 +1,11 @@
-name: Analysestate Workflow
+name: hadolint Workflow
 
 on:
   pull_request:
   push:
   workflow_dispatch:
+
+ 
 
 jobs:
   analyse-code:
@@ -22,7 +24,3 @@ jobs:
     - name: Analyse Dockerfile avec hadolint
       run: |
         docker run --rm -i hadolint/hadolint < ./super_calculator/Dockerfile
-
- 
-
-   
