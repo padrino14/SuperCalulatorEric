@@ -38,7 +38,7 @@ jobs:
       - name: Install Super-Linter
         run: |
           git clone https://github.com/github/super-linter.git
-          cd super-linter
+          cd ./Nouveau_dossier/super_calculator/super_calculator/super-linter
           pip install -r requirements.txt
           chmod +x super-linter.sh
       
