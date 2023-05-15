@@ -26,7 +26,7 @@ jobs:
         uses: returntocorp/semgrep-action@v1
       - name: Analyse statistique de Semgrep
         run: |
-          semgrep --config p/python ./super_calculator/Dockerfile
+          semgrep --config p/python ./Nouveau_dossier/super_calculator/super_calculator/Dockerfile
       
     
             
