@@ -19,3 +19,4 @@ COPY --from=build /calculator /calculator
 USER nonroot:nonroot
 
 ENTRYPOINT ["/calculator"]
+
