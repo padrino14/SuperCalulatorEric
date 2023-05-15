@@ -1,4 +1,4 @@
-name: Analysestate Workflow
+name: Analyse Dockerfile Workflow
 
 on:
   pull_request:
@@ -15,8 +15,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Analyse Dockerfile avec hadolint
+      - name: Analyse Dockerfile avec Hadolint
         run: |
           docker pull hadolint/hadolint:latest || true
           docker run --rm -i hadolint/hadolint < ./Nouveau_dossier/super_calculator/super_calculator/Dockerfile
+
 
