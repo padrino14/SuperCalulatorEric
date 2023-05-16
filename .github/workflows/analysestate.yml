@@ -35,13 +35,7 @@ jobs:
         with:
           python-version: 3.x
       
-      - name: Install Super-Linter
-        run: |
-          git clone https://github.com/github/super-linter
-          cd /super-linter/super-linter.sh
-          ./install.sh
-          pip install -r requirements.txt
-          chmod +x super-linter.sh
+     
       
       - name: Run Super-Linter with Semgrep
         run: |
