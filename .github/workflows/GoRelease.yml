@@ -1,1 +1,31 @@
+name: Dependabot
+
+on:
+  schedule:
+   - cron:  '30 5,17 * * *'  # Exécution quotidienne à minuit (UTC)
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.16'  # Remplacez par la version de Go souhaitée
+
+      - name: Set up Docker
+        uses: docker/setup-docker@v1
+
+      - name: Run Dependabot
+        uses: dependabot/dependabot-core@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          directory: ./Nouveau_dossier/super_calculator/super_calculator/Dockerfile
+          package_manager: 'gomod'  # Indique que le projet utilise Go Modules
+          update_strategy: 'widen'  # Stratégie de mise à jour des dépendances
+          additional_requirements: 'Dockerfile'  # Fichier Dockerfile pour les dépendances Docker
 
