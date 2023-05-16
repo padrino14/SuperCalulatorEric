@@ -37,10 +37,7 @@ jobs:
       
      
       
-      - name: Run Super-Linter with Semgrep
-        run: |
-          cd $GITHUB_WORKSPACE
-          ./super-linter.sh -e ".*" -e "!Nouveau_dossier/super_calculator/super_calculator/Dockerfile"
+     
 
     
 
