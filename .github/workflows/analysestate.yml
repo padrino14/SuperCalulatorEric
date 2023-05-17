@@ -29,30 +29,7 @@ jobs:
           semgrep --config p/python ./Nouveau_dossier/super_calculator/super_calculator/Dockerfile
       
       
-        
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-
-  
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: '1.16'  # Remplacez par la version de Go souhaitée
-        
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
-
-      - name: Run Dependabot
-        uses: dependabot/dependabot-core@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          directory: ./Nouveau_dossier/super_calculator/super_calculator
-          package_manager: 'gomod'  # Indique que le projet utilise Go Modules
-          update_strategy: 'widen'  # Stratégie de mise à jour des dépendances
-          additional_requirements: 'Dockerfile'  # Fichier Dockerfile pour les dépendances Docker
-
+   
      
       
      
