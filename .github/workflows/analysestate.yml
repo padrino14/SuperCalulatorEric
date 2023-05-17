@@ -29,8 +29,14 @@ jobs:
           semgrep --config p/python ./Nouveau_dossier/super_calculator/super_calculator/Dockerfile
       
       
-   
-     
+      - uses: actions/checkout@v2
+
+      - name: Super-Linter
+        uses: docker://github/super-linter:latest
+        
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_TERRAFORM_TERRASCAN: false
       
      
 
